@@ -13,6 +13,8 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
 
+app.use(express.static('build'))
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
