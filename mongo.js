@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
@@ -28,18 +29,17 @@ const person = new Person({
 })
 
 if (process.argv.length < 5) {
-    console.log('phonebook:')
-    Person.find({}).then((persons) => {
-        persons.map((person) => console.log(person.name, person.number))
-        mongoose.connection.close()
-        process.exit(1)
-})
-    
+  console.log('phonebook:')
+  Person.find({}).then((persons) => {
+    persons.map((person) => console.log(person.name, person.number))
+    mongoose.connection.close()
+    process.exit(1)
+  })
 } else {
-    person.save().then(result => {
-        console.log(`added ${result.name} number ${result.number} to phonebook`)
-        mongoose.connection.close()
-        process.exit(1)
-    })
+  person.save().then(result => {
+    console.log(`added ${result.name} number ${result.number} to phonebook`)
+    mongoose.connection.close()
+    process.exit(1)
+  })
 }
 
